@@ -41,3 +41,10 @@ function userDetail(anyObject) {
 }
 userDetail(user)
 
+// ++++++++++ another method to declare function+++++
+const testFucntion = function(num) {
+    return num;
+}
+console.log(testFucntion(99));
+
+
