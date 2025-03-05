@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling vs Capturing</title>
+    <style>
+        #outer { padding: 50px; background: lightcoral; }
+        #middle { padding: 30px; background: lightblue; }
+        #inner { padding: 10px; background: lightgreen; }
+    </style>
+</head>
+<body>
+
+    <div id="outer">
+        Outer Div
+        <div id="middle">
+            Middle Div
+            <button id="inner">Click Me</button>
+        </div>
+    </div>
+
+    <script>
+        // Event Capturing (Top to Bottom) - Use "true" as third parameter
+        document.getElementById("outer").addEventListener("click", function() {
+            console.log("Outer Div (Capturing)");
+        }, true);
+
+        document.getElementById("middle").addEventListener("click", function() {
+            console.log("Middle Div (Capturing)");
+        }, true);
+
+        document.getElementById("inner").addEventListener("click", function() {
+            console.log("Inner Button (Capturing)");
+        }, true);
+
+        // Event Bubbling (Bottom to Top) - Default behavior
+        document.getElementById("outer").addEventListener("click", function() {
+            console.log("Outer Div (Bubbling)");
+        });
+
+        document.getElementById("middle").addEventListener("click", function() {
+            console.log("Middle Div (Bubbling)");
+        });
+
+        document.getElementById("inner").addEventListener("click", function() {
+            console.log("Inner Button (Bubbling)");
+        });
+
+    </script>
+
+</body>
+</html>
